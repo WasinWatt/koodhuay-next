@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix"
+    "lint": "eslint . --ext .tsx,.ts --fix --ignore-path .gitignore"
   },
   "dependencies": {
     "@hapi/boom": "^10.0.1",
@@ -26,7 +26,9 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.8"
   }
 }

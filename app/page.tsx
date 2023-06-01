@@ -6,25 +6,22 @@ import { cookies } from 'next/headers'
 const getUserFromCookie = async (cookies: ReadonlyRequestCookies) => {
   const authToken = cookies.get('psg_auth_token')?.value
   if (!authToken) return null
-  
+
   return getUserFromAuthToken(authToken)
 }
 
 export default async function Home() {
   const userId = await getUserFromCookie(cookies())
-  console.log(userId)
-  
+
   return (
     <>
-    {userId ? (
-      <div>
-        Hello, {userId}!
-      </div>
-    ) : (
-      <div >
-        <PassageLogin />
-      </div>
-    )}
+      {userId ? (
+        <div>Hello, {userId}!</div>
+      ) : (
+        <div>
+          <PassageLogin />
+        </div>
+      )}
     </>
-  ) 
+  )
 }
