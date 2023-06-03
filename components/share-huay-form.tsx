@@ -112,7 +112,7 @@ export default function ShareHuayForm({ close }: { close: () => void }) {
       <Button
         isLoading={isSubmitting}
         loadingText='กำลังส่ง'
-        colorScheme='teal'
+        className='bg-[#2bd498] hover:bg-[#2bd498]'
         variant='outline'
         width='full'
         onClick={submit}

@@ -3,7 +3,7 @@
 import HuayComponent from '@/components/huay'
 import PassageLogin from '@/components/login'
 import ShareHuayForm from '@/components/share-huay-form'
-import { ArrowForwardIcon } from '@chakra-ui/icons'
+import { PlusSquareIcon } from '@chakra-ui/icons'
 import { Button, SimpleGrid } from '@chakra-ui/react'
 import { useState } from 'react'
 import { Huay } from '@/types/huay'
@@ -23,16 +23,17 @@ export default function App({
   return (
     <>
       <div>
-        <h2 className='font-semibold text-3xl text-center mb-5'>แชร์หวย</h2>
+        <h1 className='font-semibold text-3xl text-center mb-5'>
+          พื้นที่แบ่งปันแรงบันดาลใจขูดหวย
+        </h1>
       </div>
       {userId ? (
         <div>
           <div className='flex flex-col items-center justify-center mb-5'>
             <Button
-              rightIcon={<ArrowForwardIcon />}
-              colorScheme='teal'
-              variant='outline'
-              className='mb-5'
+              leftIcon={<PlusSquareIcon />}
+              variant={'solid'}
+              className='mb-5 bg-[#2bd498] hover:bg-[#2bd498] hover:scale-105'
               onClick={() => setShowShareHuayForm(!showShareHuayForm)}
             >
               แชร์ประสบการณ์ขูดหวย
