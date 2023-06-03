@@ -9,10 +9,10 @@ export default function PassageLogin() {
   }, [])
 
   return (
-    <>
+    <div className='border rounded-lg w-[360px] mx-auto'>
       <passage-auth
         app-id={process.env.NEXT_PUBLIC_PASSAGE_APP_ID}
       ></passage-auth>
-    </>
+    </div>
   )
 }

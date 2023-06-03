@@ -1,7 +1,8 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Prompt } from 'next/font/google'
+import { Providers } from './providers'
 
-const inter = Inter({ subsets: ['latin'] })
+const prompt = Prompt({ subsets: ['thai'], weight: ['400', '600', '700'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body className={prompt.className}>
+        <Providers>
+          <div className='py-20 max-w-3xl mx-auto w-full px-2'>{children}</div>
+        </Providers>
+      </body>
     </html>
   )
 }
