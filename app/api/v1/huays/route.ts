@@ -14,9 +14,10 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const huays: Huay[] = await getHuays({ firestore })
+    const sortBy = request.nextUrl.searchParams.get('sortBy') || 'likes'
+    const huays: Huay[] = await getHuays({ firestore }, sortBy)
     return NextResponse.json({ huays })
   } catch (error) {
     return handle(error)

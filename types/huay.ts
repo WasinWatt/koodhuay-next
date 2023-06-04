@@ -3,4 +3,5 @@ export interface Huay {
   number: string
   won: boolean
   description: string
+  likes: number
 }

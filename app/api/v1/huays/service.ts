@@ -7,7 +7,7 @@ export const createHuay = async (
 ) => {
   const { id } = await firestore
     .collection('huays')
-    .add({ ...huay, createdAt: Date.now() })
+    .add({ ...huay, likes: 0, createdAt: Date.now() })
 
   return {
     ...huay,
@@ -15,11 +15,14 @@ export const createHuay = async (
   }
 }
 
-export const getHuays = async ({ firestore }: { firestore: Firestore }) => {
+export const getHuays = async (
+  { firestore }: { firestore: Firestore },
+  sortBy: string
+) => {
   const huays = await firestore
     .collection('huays')
-    .orderBy('createdAt', 'desc')
-    .limitToLast(50)
+    .orderBy(sortBy, 'desc')
+    .limitToLast(25)
     .get()
 
   return huays.docs.map((huay) => ({

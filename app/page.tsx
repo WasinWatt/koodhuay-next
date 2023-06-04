@@ -15,7 +15,7 @@ export default async function Home() {
   const userId = await getUserFromCookie(cookies())
   const {
     data: { huays },
-  } = await axios.get('/api/v1/huays')
+  } = await axios.get('/api/v1/huays?sortBy=likes')
 
   return <App userId={userId} huays={huays} />
 }
