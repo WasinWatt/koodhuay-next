@@ -17,7 +17,13 @@ import {
 } from '@chakra-ui/react'
 import { useState } from 'react'
 
-export default function ShareHuayForm({ close }: { close: () => void }) {
+export default function ShareHuayForm({
+  userId,
+  close,
+}: {
+  userId: string
+  close: () => void
+}) {
   const [number, setNumber] = useState('XXXXXX')
   const [result, setResult] = useState('lost')
   const [description, setDescription] = useState('')
@@ -41,6 +47,7 @@ export default function ShareHuayForm({ close }: { close: () => void }) {
         number: number,
         won: result === 'won',
         description,
+        userId,
       })
       setIsSubmitting(false)
       setIsSuccessModalOpen(true)

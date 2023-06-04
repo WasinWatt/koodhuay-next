@@ -14,7 +14,6 @@ import {
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import { Huay } from '@/types/huay'
-import { useRouter } from 'next/navigation'
 import axios from '@/utils/axios'
 import HuayGroup from '@/components/huay-group'
 
@@ -25,7 +24,6 @@ export default function App({
   userId: string | null
   huays: Huay[]
 }) {
-  const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const [showShareHuayForm, setShowShareHuayForm] = useState(false)
   const [currentHuays, setCurrentHuays] = useState<Huay[]>(() => huays)
@@ -78,9 +76,10 @@ export default function App({
             </Button>
             {showShareHuayForm && (
               <ShareHuayForm
+                userId={userId}
                 close={() => {
                   setShowShareHuayForm(false)
-                  router.refresh()
+                  location.reload()
                 }}
               />
             )}
