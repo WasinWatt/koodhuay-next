@@ -1,3 +1,4 @@
+import analytics from '@/utils/analytics'
 import axios from '@/utils/axios'
 import {
   Button,
@@ -15,6 +16,7 @@ import {
   Stack,
   Textarea,
 } from '@chakra-ui/react'
+import { logEvent } from 'firebase/analytics'
 import { useState } from 'react'
 
 export default function ShareHuayForm({
@@ -49,6 +51,7 @@ export default function ShareHuayForm({
         description,
         userId,
       })
+      logEvent(analytics, 'huay_shared', { won: result === 'won' })
       setIsSubmitting(false)
       setIsSuccessModalOpen(true)
     } catch (error) {
