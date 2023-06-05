@@ -69,7 +69,7 @@ export default function App({
             <Button
               leftIcon={<PlusSquareIcon />}
               variant={'solid'}
-              className='mb-5 bg-[#2bd498] hover:bg-[#2bd498] hover:scale-105'
+              className='bg-[#2bd498] hover:bg-[#2bd498] hover:scale-105'
               onClick={() => setShowShareHuayForm(!showShareHuayForm)}
             >
               แชร์ประสบการณ์ขูดหวย
