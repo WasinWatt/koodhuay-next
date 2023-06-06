@@ -1,6 +1,6 @@
 'use client'
 
-import analytics from '@/utils/analytics'
+import { useGA } from '@/app/providers'
 import axios from '@/utils/axios'
 import {
   Button,
@@ -33,6 +33,7 @@ export default function ShareHuayForm({
   const [description, setDescription] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false)
+  const { analytics } = useGA()
 
   const isSubmitDisabled = number === 'XXXXXX' || !result || !description
 
@@ -53,7 +54,8 @@ export default function ShareHuayForm({
         description,
         userId,
       })
-      logEvent(analytics, 'huay_shared', { won: result === 'won' })
+
+      analytics && logEvent(analytics, 'huay_shared', { won: result === 'won' })
       setIsSubmitting(false)
       setIsSuccessModalOpen(true)
     } catch (error) {

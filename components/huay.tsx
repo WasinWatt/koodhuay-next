@@ -13,8 +13,8 @@ import { ArrowUpIcon, CopyIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
 import Image from 'next/image'
 import axios from '@/utils/axios'
-import analytics from '@/utils/analytics'
 import { logEvent } from 'firebase/analytics'
+import { useGA } from '@/app/providers'
 
 export default function Huay({
   huay: { won, number, description, id, likes },
@@ -23,6 +23,7 @@ export default function Huay({
 }) {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false)
   const [isLiked, setIsLiked] = useState(false)
+  const { analytics } = useGA()
   return (
     <Card
       width={360}
@@ -99,7 +100,7 @@ export default function Huay({
                   navigator.clipboard.writeText(
                     `${window.location.origin}/huays/${id}`
                   )
-                  logEvent(analytics, 'huay_link_copied')
+                  analytics && logEvent(analytics, 'huay_link_copied')
                   setIsTooltipOpen(true)
                 }}
               >

@@ -16,7 +16,7 @@ export default function HuayGroup({
     <SimpleGrid
       spacing={4}
       templateColumns='repeat(auto-fill, minmax(360px, 1fr))'
-      alignItems={'center'}
+      justifyItems={'center'}
     >
       {isLoading &&
         [1, 2, 3, 4].map((_, index) => (
@@ -29,7 +29,7 @@ export default function HuayGroup({
           <Link
             href={`/huays/${huay.id}`}
             key={index}
-            className='flex justify-center'
+            className='flex justify-center w-[360px]'
           >
             <HuayComponent huay={huay} />
           </Link>
