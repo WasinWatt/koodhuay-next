@@ -1,6 +1,7 @@
 import { serverUnavailable } from '@hapi/boom'
 import { JWK } from 'jose'
 import { decodeProtectedHeader, importJWK, jwtVerify } from 'jose'
+import { ReadonlyRequestCookies } from 'next/dist/server/web/spec-extension/adapters/request-cookies'
 
 interface JWKS {
   [key: string]: JWK
@@ -83,4 +84,11 @@ export const getUserFromAuthToken = async (
     console.log(e)
     return null
   }
+}
+
+export const getUserFromCookie = async (cookies: ReadonlyRequestCookies) => {
+  const authToken = cookies.get('psg_auth_token')?.value
+  if (!authToken) return null
+
+  return getUserFromAuthToken(authToken)
 }

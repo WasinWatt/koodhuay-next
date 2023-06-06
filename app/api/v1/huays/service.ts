@@ -1,16 +1,20 @@
 import { Huay } from '@/types/huay'
 import { Firestore } from 'firebase-admin/firestore'
+import { HuayRequestBody } from './route'
 
 export const createHuay = async (
   { firestore }: { firestore: Firestore },
-  huay: Huay
+  userId: string,
+  huay: HuayRequestBody
 ) => {
   const { id } = await firestore
     .collection('huays')
-    .add({ ...huay, likes: 0, createdAt: Date.now() })
+    .add({ ...huay, userId, likes: 0, createdAt: Date.now() })
 
   return {
     ...huay,
+    likes: 0,
+    userId,
     id,
   }
 }
