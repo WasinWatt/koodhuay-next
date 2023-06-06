@@ -1,3 +1,5 @@
+'use client'
+
 import analytics from '@/utils/analytics'
 import axios from '@/utils/axios'
 import {

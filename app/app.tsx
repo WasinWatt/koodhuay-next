@@ -24,6 +24,7 @@ export default function App({
   userId: string | null
   huays: Huay[]
 }) {
+  const [showLogin, setShowLogin] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [showShareHuayForm, setShowShareHuayForm] = useState(false)
   const [currentHuays, setCurrentHuays] = useState<Huay[]>(() => huays)
@@ -86,9 +87,18 @@ export default function App({
           </div>
         </div>
       ) : (
-        <div>
+        <div className='flex flex-col items-center'>
           <p className='text-center mb-6'>กรุณาเข้าสู่ระบบเพื่อแชร์เลขหวย</p>
-          <PassageLogin />
+          {!showLogin && (
+            <Button
+              variant={'solid'}
+              className='bg-[#2bd498] hover:bg-[#2bd498] hover:scale-105'
+              onClick={() => setShowLogin(true)}
+            >
+              เข้าสู่ระบบ
+            </Button>
+          )}
+          {showLogin && <PassageLogin />}
         </div>
       )}
       <Tabs position='relative' isFitted marginTop='16px'>
