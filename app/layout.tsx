@@ -1,6 +1,7 @@
 import './globals.css'
 import { Prompt } from 'next/font/google'
 import { Providers } from './providers'
+import Head from 'next/head'
 
 const prompt = Prompt({ subsets: ['thai'], weight: ['400', '600', '700'] })
 
