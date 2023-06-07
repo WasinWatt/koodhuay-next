@@ -52,7 +52,7 @@ export default function Huay({
       <CardBody
         padding='14px'
         paddingTop='0px'
-        className='flex justify-between'
+        className='flex justify-between gap-x-1'
       >
         <Image
           src={won ? '/huay/doge-won.png' : '/huay/doge-lost.png'}

@@ -2,7 +2,7 @@
 
 import PassageLogin from '@/components/login'
 import ShareHuayForm from '@/components/share-huay-form'
-import { PlusSquareIcon } from '@chakra-ui/icons'
+import { PlusSquareIcon, RepeatIcon } from '@chakra-ui/icons'
 import {
   Button,
   Tab,
@@ -24,6 +24,7 @@ export default function App({
   userId: string | null
   huays: Huay[]
 }) {
+  const [currentTab, setCurrentTab] = useState('hot')
   const [showLogin, setShowLogin] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [showShareHuayForm, setShowShareHuayForm] = useState(false)
@@ -31,6 +32,7 @@ export default function App({
 
   const getHotPosts = async () => {
     try {
+      setCurrentTab('hot')
       setIsLoading(true)
       const {
         data: { huays },
@@ -45,6 +47,7 @@ export default function App({
 
   const getNewPosts = async () => {
     try {
+      setCurrentTab('new')
       setIsLoading(true)
       const {
         data: { huays },
@@ -133,6 +136,16 @@ export default function App({
           </TabPanel>
         </TabPanels>
       </Tabs>
+      <div className='fixed bottom-5 right-5 z-50'>
+        <Button
+          leftIcon={<RepeatIcon />}
+          variant={'solid'}
+          className='bg-primary hover:bg-primary hover:scale-105 mb-2'
+          onClick={() => (currentTab === 'hot' ? getHotPosts() : getNewPosts())}
+        >
+          โหลดข้อมูลล่าสุด
+        </Button>
+      </div>
     </>
   )
 }
