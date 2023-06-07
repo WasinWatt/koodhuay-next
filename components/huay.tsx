@@ -6,6 +6,7 @@ import {
   Badge,
   Button,
   Tooltip,
+  Icon,
 } from '@chakra-ui/react'
 
 import { Huay } from '@/types/huay'
@@ -15,6 +16,15 @@ import Image from 'next/image'
 import axios from '@/utils/axios'
 import { logEvent } from 'firebase/analytics'
 import { useGA } from '@/app/providers'
+
+const CircleIcon = (props: object) => (
+  <Icon viewBox='0 0 200 200' {...props} className='w-4 h-4 opacity-30'>
+    <path
+      fill='currentColor'
+      d='M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0'
+    />
+  </Icon>
+)
 
 export default function Huay({
   huay: { won, number, description, id, likes },
@@ -36,7 +46,7 @@ export default function Huay({
       <CardHeader
         className='flex justify-between'
         paddingLeft='14px'
-        paddingRight='0px'
+        paddingRight='12px'
         paddingTop='10px'
         paddingBottom='8px'
       >
@@ -45,9 +55,13 @@ export default function Huay({
             <p className='text-xl'>{won ? 'กินหวย' : 'โดนแดก'}</p>
           </Badge>
         </div>
-        <h3 className='text-2xl font-semibold text-right tracking-[0.5em]'>
-          {number}
-        </h3>
+        <div className='text-2xl font-semibold flex justify-end gap-x-2 items-center'>
+          {number
+            .split('')
+            .map((n, index) =>
+              n === 'X' ? <CircleIcon key={index} /> : <h3 key={index}>{n}</h3>
+            )}
+        </div>
       </CardHeader>
       <CardBody
         padding='14px'
