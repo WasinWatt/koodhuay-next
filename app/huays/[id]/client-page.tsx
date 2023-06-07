@@ -8,11 +8,13 @@ import Link from 'next/link'
 export default function HuayClientPage({ huay }: { huay: Huay }) {
   return (
     <div className='flex flex-col justify-center'>
-      <HuayComponent huay={huay} />
-      <Link href='/' className='mt-5 mx-auto'>
+      <div className='md:scale-125'>
+        <HuayComponent huay={huay} />
+      </div>
+      <Link href='/' className='mt-8 mx-auto'>
         <Button
           leftIcon={<ArrowBackIcon />}
-          colorScheme='teal'
+          className='bg-primary hover:bg-primary hover:scale-105 border-none'
           variant='outline'
         >
           กลับไปส่องหวยต่อ

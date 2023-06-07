@@ -70,7 +70,7 @@ export default function App({
             <Button
               leftIcon={<PlusSquareIcon />}
               variant={'solid'}
-              className='bg-[#2bd498] hover:bg-[#2bd498] hover:scale-105'
+              className='bg-primary hover:bg-primary hover:scale-105 mb-2'
               onClick={() => setShowShareHuayForm(!showShareHuayForm)}
             >
               แชร์ประสบการณ์ขูดหวย
@@ -103,13 +103,17 @@ export default function App({
       )}
       <Tabs position='relative' isFitted marginTop='16px'>
         <TabList>
-          <Tab onClick={() => getHotPosts()}>กำลังฮิต 🔥</Tab>
-          <Tab onClick={() => getNewPosts()}>มาใหม่ ✨</Tab>
+          <Tab onClick={() => getHotPosts()} color='purple.500'>
+            กำลังฮิต 🔥
+          </Tab>
+          <Tab onClick={() => getNewPosts()} color='purple.500'>
+            มาใหม่ ✨
+          </Tab>
         </TabList>
         <TabIndicator
           mt='-1.5px'
           height='2px'
-          bg='blue.500'
+          bg='pink.400'
           borderRadius='1px'
         />
         <TabPanels>

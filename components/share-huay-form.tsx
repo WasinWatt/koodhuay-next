@@ -80,7 +80,11 @@ export default function ShareHuayForm({
           <ModalBody>ขอบคุณที่มาแชร์แรงบันดาลใจเลขหวยกับเรานะคะ</ModalBody>
 
           <ModalFooter>
-            <Button colorScheme='teal' onClick={() => close()}>
+            <Button
+              className='bg-primary hover:bg-primary'
+              variant={'solid'}
+              onClick={() => close()}
+            >
               ปิด
             </Button>
           </ModalFooter>
@@ -88,7 +92,7 @@ export default function ShareHuayForm({
       </Modal>
       <div className='mb-4'>
         <p className='mb-2'>เลขหวยที่ซื้อ</p>
-        <div className='flex gap-4 mx-auto'>
+        <div className='flex gap-4 mx-auto mb-2'>
           <PinInput>
             <PinInputField onBlur={(e) => pinChange(0, e.target.value)} />
             <PinInputField onBlur={(e) => pinChange(1, e.target.value)} />
@@ -98,6 +102,7 @@ export default function ShareHuayForm({
             <PinInputField onBlur={(e) => pinChange(5, e.target.value)} />
           </PinInput>
         </div>
+        <p className='text-sm text-gray-400 italic'>ไม่จำเป็นต้องใส่ทุกเลข</p>
       </div>
       <div className='mb-4'>
         <p className='mb-2'>ใครกินใคร</p>

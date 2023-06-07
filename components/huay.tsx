@@ -28,7 +28,7 @@ export default function Huay({
     <Card
       width={360}
       height={190}
-      className='mx-auto'
+      className='mx-auto bg-orange-100'
       variant='outline'
       borderColor='black'
     >

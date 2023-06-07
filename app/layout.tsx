@@ -1,7 +1,7 @@
 import './globals.css'
 import { Prompt } from 'next/font/google'
 import { Providers } from './providers'
-import Head from 'next/head'
+import Link from 'next/link'
 
 const prompt = Prompt({ subsets: ['thai'], weight: ['400', '600', '700'] })
 
@@ -30,12 +30,30 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={prompt.className}>
+      <body
+        className={`${prompt.className} bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500`}
+      >
         <Providers>
-          <div className='max-w-3xl mx-auto w-full px-2'>
+          <div className='max-w-3xl mx-auto w-full min-h-screen relative bg-orange-300'>
             {/*eslint-disable-next-line @next/next/no-img-element*/}
             <img src='/home/doge-banner.gif' alt='banner' className='w-full' />
-            <div className='py-10'>{children}</div>
+            <div className='flex items-center justify-center bg-primary h-8'>
+              <p className='text-sm'>
+                สนับสนุนโดย
+                <Link href='https://drinksonme.live' className='ml-2 underline'>
+                  DrinksOnMe บาร์ออนไลน์
+                </Link>
+              </p>
+            </div>
+            <div className='py-10 px-2'>{children}</div>
+            <div className='flex items-center justify-center bg-primary h-8 absolute bottom-0 w-full'>
+              <p className='text-sm'>
+                สนับสนุนโดย
+                <Link href='https://drinksonme.live' className='ml-2 underline'>
+                  DrinksOnMe บาร์ออนไลน์
+                </Link>
+              </p>
+            </div>
           </div>
         </Providers>
       </body>
