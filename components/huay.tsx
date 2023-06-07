@@ -85,7 +85,6 @@ export default function Huay({
           </p>
           <div>
             <Button
-              leftIcon={<ArrowUpIcon />}
               colorScheme='pink'
               variant='outline'
               size={'xs'}
@@ -97,7 +96,7 @@ export default function Huay({
               }}
               isDisabled={isLiked}
             >
-              {isLiked ? likes + 1 : likes}
+              🩷 {isLiked ? likes + 1 : likes}
             </Button>
             <Tooltip
               isOpen={isTooltipOpen}
