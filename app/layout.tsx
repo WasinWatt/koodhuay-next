@@ -2,6 +2,7 @@ import './globals.css'
 import { Prompt } from 'next/font/google'
 import { Providers } from './providers'
 import Link from 'next/link'
+import Script from 'next/script'
 
 const prompt = Prompt({ subsets: ['thai'], weight: ['400', '600', '700'] })
 
@@ -30,6 +31,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <Script
+        async
+        src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8900015899066295'
+        crossOrigin='anonymous'
+      />
       <body
         className={`${prompt.className} bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500`}
       >
