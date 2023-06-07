@@ -62,10 +62,14 @@ export default function App({
 
   return (
     <>
-      <div>
-        <h1 className='font-semibold text-3xl text-center mb-5'>
+      <div className='text-center mb-5'>
+        <h1 className='font-semibold text-3xl mb-1'>
           พื้นที่แบ่งปันแรงบันดาลใจขูดหวย
         </h1>
+        <p className='text-sm text-gray-600'>
+          เว็ปไซต์นี้มีไว้สำหรับการแชร์แรงบันดาลใจเพื่อความบันเทิงเท่านั้น
+          ห้ามโปรโมทสินค้าการพนันหรือสิ่งผิดกฎหมายใด ๆ
+        </p>
       </div>
       {userId ? (
         <div>
@@ -90,8 +94,12 @@ export default function App({
           </div>
         </div>
       ) : (
-        <div className='flex flex-col items-center'>
-          <p className='text-center mb-6'>กรุณาเข้าสู่ระบบเพื่อแชร์เลขหวย</p>
+        <div className='flex flex-col items-center text-center'>
+          <p className='font-semibold'>กรุณาเข้าสู่ระบบเพื่อแชร์เลขหวย</p>
+          <p className='text-sm text-gray-600 mb-6'>
+            เว็ปไซต์นี้ใช้ระบบล๊อกอินแบบไร้พาสเวิร์ด
+            และจะไม่นำอีเมลของผู้ใช้งานไปใช้ใด ๆ
+          </p>
           {!showLogin && (
             <Button
               variant={'solid'}
