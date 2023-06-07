@@ -65,7 +65,7 @@ export default function ShareHuayForm({
   }
 
   return (
-    <div className='border rounded-lg max-w-[360px] mx-auto p-6'>
+    <div className='border border-black rounded-lg max-w-[360px] mx-auto p-6 bg-orange-100'>
       <Modal
         isOpen={isSuccessModalOpen}
         onClose={() => {
@@ -94,15 +94,33 @@ export default function ShareHuayForm({
         <p className='mb-2'>เลขหวยที่ซื้อ</p>
         <div className='flex gap-4 mx-auto mb-2'>
           <PinInput>
-            <PinInputField onBlur={(e) => pinChange(0, e.target.value)} />
-            <PinInputField onBlur={(e) => pinChange(1, e.target.value)} />
-            <PinInputField onBlur={(e) => pinChange(2, e.target.value)} />
-            <PinInputField onBlur={(e) => pinChange(3, e.target.value)} />
-            <PinInputField onBlur={(e) => pinChange(4, e.target.value)} />
-            <PinInputField onBlur={(e) => pinChange(5, e.target.value)} />
+            <PinInputField
+              onBlur={(e) => pinChange(0, e.target.value)}
+              className='border-black'
+            />
+            <PinInputField
+              onBlur={(e) => pinChange(1, e.target.value)}
+              className='border-black'
+            />
+            <PinInputField
+              onBlur={(e) => pinChange(2, e.target.value)}
+              className='border-black'
+            />
+            <PinInputField
+              onBlur={(e) => pinChange(3, e.target.value)}
+              className='border-black'
+            />
+            <PinInputField
+              onBlur={(e) => pinChange(4, e.target.value)}
+              className='border-black'
+            />
+            <PinInputField
+              onBlur={(e) => pinChange(5, e.target.value)}
+              className='border-black'
+            />
           </PinInput>
         </div>
-        <p className='text-sm text-gray-400 italic'>ไม่จำเป็นต้องใส่ทุกเลข</p>
+        <p className='text-sm text-gray-600 italic'>ไม่จำเป็นต้องใส่ทุกเลข</p>
       </div>
       <div className='mb-4'>
         <p className='mb-2'>ใครกินใคร</p>
@@ -122,6 +140,7 @@ export default function ShareHuayForm({
       <div className='mb-4'>
         <p className='mb-2'>เลขนี้ได้แต่ใดมา</p>
         <Textarea
+          className='border border-black'
           placeholder='หลักการขูดหวยสั้น ๆ ไม่เกิน 140 ตัวอักษร'
           height={130}
           maxLength={140}
@@ -132,7 +151,7 @@ export default function ShareHuayForm({
         isLoading={isSubmitting}
         loadingText='กำลังส่ง'
         className='bg-[#2bd498] hover:bg-[#2bd498]'
-        variant='outline'
+        variant='solid'
         width='full'
         onClick={submit}
         isDisabled={isSubmitDisabled}

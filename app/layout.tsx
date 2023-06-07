@@ -41,6 +41,17 @@ export default function RootLayout({
       >
         <Providers>
           <div className='max-w-3xl mx-auto w-full min-h-screen relative bg-orange-300'>
+            <div className='flex flex-col items-center justify-center bg-black h-12 text-white'>
+              <p className='text-xs'>
+                สนใจร่วมกันสร้างเว็ปสนุก ๆ เพื่อสร้าง Brand Awareness
+              </p>
+              <p className='text-xs'>
+                ติดต่อร่วมสร้างของกับพวกเราได้ที่{' '}
+                <span className='font-semibold underline'>
+                  betabuilder.co@gmail.com
+                </span>
+              </p>
+            </div>
             {/*eslint-disable-next-line @next/next/no-img-element*/}
             <img src='/home/doge-banner.gif' alt='banner' className='w-full' />
             <div className='flex items-center justify-center bg-primary h-8'>
