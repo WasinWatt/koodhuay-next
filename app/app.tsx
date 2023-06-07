@@ -2,9 +2,10 @@
 
 import PassageLogin from '@/components/login'
 import ShareHuayForm from '@/components/share-huay-form'
-import { PlusSquareIcon, RepeatIcon } from '@chakra-ui/icons'
+import { ArrowDownIcon, PlusSquareIcon, RepeatIcon } from '@chakra-ui/icons'
 import {
   Button,
+  Spinner,
   Tab,
   TabIndicator,
   TabList,
@@ -27,6 +28,7 @@ export default function App({
   const [currentTab, setCurrentTab] = useState('hot')
   const [showLogin, setShowLogin] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [showShareHuayForm, setShowShareHuayForm] = useState(false)
   const [currentHuays, setCurrentHuays] = useState<Huay[]>(() => huays)
 
@@ -58,6 +60,25 @@ export default function App({
       alert('พบเจอปัญหาระหว่างขุดหวยค่า กรุณาลองใหม่นะคะ')
     }
     setTimeout(() => setIsLoading(false), 1000)
+  }
+
+  const getMorePosts = async () => {
+    try {
+      setIsLoadingMore(true)
+      const sortBy = currentTab === 'hot' ? 'likes' : 'createdAt'
+      const {
+        data: { huays },
+      } = await axios.get(
+        `/api/v1/huays?sortBy=${sortBy}&lastId=${
+          currentHuays[currentHuays.length - 1].id
+        }`
+      )
+      setCurrentHuays((prev) => [...prev, ...huays])
+    } catch (error) {
+      console.log(error)
+      alert('พบเจอปัญหาระหว่างขุดหวยค่า กรุณาลองใหม่นะคะ')
+    }
+    setIsLoadingMore(false)
   }
 
   return (
@@ -138,9 +159,39 @@ export default function App({
         <TabPanels>
           <TabPanel paddingX={0}>
             <HuayGroup huays={currentHuays} isLoading={isLoading} />
+            {isLoadingMore ? (
+              <div className='flex justify-center mt-3'>
+                <Spinner size={'lg'} />
+              </div>
+            ) : (
+              <div
+                className='flex justify-center mt-3 cursor-pointer underline'
+                onClick={() => getMorePosts()}
+              >
+                <p className='text-lg'>
+                  <ArrowDownIcon />
+                  ดูหวยเพิ่ม
+                </p>
+              </div>
+            )}
           </TabPanel>
           <TabPanel paddingX={0}>
             <HuayGroup huays={currentHuays} isLoading={isLoading} />
+            {isLoadingMore ? (
+              <div className='flex justify-center mt-3'>
+                <Spinner size={'lg'} />
+              </div>
+            ) : (
+              <div
+                className='flex justify-center mt-3 cursor-pointer underline'
+                onClick={() => getMorePosts()}
+              >
+                <p className='text-lg'>
+                  <ArrowDownIcon />
+                  ดูหวยเพิ่ม
+                </p>
+              </div>
+            )}
           </TabPanel>
         </TabPanels>
       </Tabs>

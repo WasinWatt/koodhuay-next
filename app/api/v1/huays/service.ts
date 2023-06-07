@@ -21,13 +21,20 @@ export const createHuay = async (
 
 export const getHuays = async (
   { firestore }: { firestore: Firestore },
-  sortBy: string
+  { sortBy, lastId }: { sortBy: string; lastId: string | null }
 ) => {
-  const huays = await firestore
-    .collection('huays')
-    .orderBy(sortBy, 'desc')
-    .limitToLast(25)
-    .get()
+  let lastHuay
+  if (lastId) {
+    lastHuay = await firestore.collection('huays').doc(lastId).get()
+    if (!lastHuay.exists) {
+      throw new Error('Invalid lastId')
+    }
+  }
+
+  const query = lastHuay
+    ? firestore.collection('huays').orderBy(sortBy, 'desc').startAfter(lastHuay)
+    : firestore.collection('huays').orderBy(sortBy, 'desc')
+  const huays = await query.limit(20).get()
 
   return huays.docs.map((huay) => ({
     ...(huay.data() as Huay),

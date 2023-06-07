@@ -31,7 +31,8 @@ export async function POST(request: NextRequest) {
 export async function GET(request: NextRequest) {
   try {
     const sortBy = request.nextUrl.searchParams.get('sortBy') || 'likes'
-    const huays: Huay[] = await getHuays({ firestore }, sortBy)
+    const lastId = request.nextUrl.searchParams.get('lastId')
+    const huays: Huay[] = await getHuays({ firestore }, { sortBy, lastId })
     return NextResponse.json({ huays })
   } catch (error) {
     return handle(error)
