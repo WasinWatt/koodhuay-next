@@ -6,8 +6,8 @@ export default function HuaySkeleton() {
       width={360}
       height={190}
       padding='6'
-      bg='white'
-      border='1px'
+      bg='orange.100'
+      border='2px'
       borderColor={'black'}
       rounded={'md'}
     >

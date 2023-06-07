@@ -31,6 +31,7 @@ export default function Huay({
       className='mx-auto bg-orange-100'
       variant='outline'
       borderColor='black'
+      borderWidth={2}
     >
       <CardHeader
         className='flex justify-between'
@@ -62,7 +63,7 @@ export default function Huay({
         />
         <div className='flex flex-col justify-between items-end'>
           <p
-            className={`text-right break-all ${
+            className={`text-right break-words ${
               description.length <= 100 ? 'text-sm' : 'text-xs'
             }`}
           >

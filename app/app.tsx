@@ -103,10 +103,18 @@ export default function App({
       )}
       <Tabs position='relative' isFitted marginTop='16px'>
         <TabList>
-          <Tab onClick={() => getHotPosts()} color='purple.500'>
+          <Tab
+            onClick={() => getHotPosts()}
+            color='purple.500'
+            className='font-bold'
+          >
             กำลังฮิต 🔥
           </Tab>
-          <Tab onClick={() => getNewPosts()} color='purple.500'>
+          <Tab
+            onClick={() => getNewPosts()}
+            color='purple.500'
+            className='font-bold'
+          >
             มาใหม่ ✨
           </Tab>
         </TabList>

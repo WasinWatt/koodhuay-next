@@ -40,7 +40,10 @@ export default function RootLayout({
             <div className='flex items-center justify-center bg-primary h-8'>
               <p className='text-sm'>
                 สนับสนุนโดย
-                <Link href='https://drinksonme.live' className='ml-2 underline'>
+                <Link
+                  href='https://drinksonme.live'
+                  className='ml-2 underline font-semibold'
+                >
                   DrinksOnMe บาร์ออนไลน์
                 </Link>
               </p>
@@ -49,7 +52,10 @@ export default function RootLayout({
             <div className='flex items-center justify-center bg-primary h-8 absolute bottom-0 w-full'>
               <p className='text-sm'>
                 สนับสนุนโดย
-                <Link href='https://drinksonme.live' className='ml-2 underline'>
+                <Link
+                  href='https://drinksonme.live'
+                  className='ml-2 underline font-semibold'
+                >
                   DrinksOnMe บาร์ออนไลน์
                 </Link>
               </p>
