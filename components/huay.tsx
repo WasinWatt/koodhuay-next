@@ -96,7 +96,7 @@ export default function Huay({
               }}
               isDisabled={isLiked}
             >
-              🩷 {isLiked ? likes + 1 : likes}
+              ❤️ {isLiked ? likes + 1 : likes}
             </Button>
             <Tooltip
               isOpen={isTooltipOpen}
