@@ -4,17 +4,15 @@ import { HuayRequestBody } from './route'
 
 export const createHuay = async (
   { firestore }: { firestore: Firestore },
-  userId: string,
   huay: HuayRequestBody
 ) => {
   const { id } = await firestore
     .collection('huays')
-    .add({ ...huay, userId, likes: 0, createdAt: Date.now() })
+    .add({ ...huay, likes: 0, createdAt: Date.now() })
 
   return {
     ...huay,
     likes: 0,
-    userId,
     id,
   }
 }

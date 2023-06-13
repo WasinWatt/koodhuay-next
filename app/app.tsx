@@ -1,6 +1,5 @@
 'use client'
 
-import PassageLogin from '@/components/login'
 import ShareHuayForm from '@/components/share-huay-form'
 import { ArrowDownIcon, PlusSquareIcon, RepeatIcon } from '@chakra-ui/icons'
 import {
@@ -18,15 +17,8 @@ import { Huay } from '@/types/huay'
 import axios from '@/utils/axios'
 import HuayGroup from '@/components/huay-group'
 
-export default function App({
-  userId,
-  huays,
-}: {
-  userId: string | null
-  huays: Huay[]
-}) {
+export default function App({ huays }: { huays: Huay[] }) {
   const [currentTab, setCurrentTab] = useState('hot')
-  const [showLogin, setShowLogin] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [showShareHuayForm, setShowShareHuayForm] = useState(false)
@@ -92,47 +84,26 @@ export default function App({
           ห้ามโปรโมทสินค้าการพนันหรือสิ่งผิดกฎหมายใด ๆ
         </p>
       </div>
-      {userId ? (
-        <div>
-          <div className='flex flex-col items-center justify-center mb-5'>
-            <Button
-              leftIcon={<PlusSquareIcon />}
-              variant={'solid'}
-              className='bg-primary hover:bg-primary hover:scale-105 mb-2'
-              onClick={() => setShowShareHuayForm(!showShareHuayForm)}
-            >
-              แชร์ประสบการณ์ขูดหวย
-            </Button>
-            {showShareHuayForm && (
-              <ShareHuayForm
-                userId={userId}
-                close={() => {
-                  setShowShareHuayForm(false)
-                  location.reload()
-                }}
-              />
-            )}
-          </div>
-        </div>
-      ) : (
-        <div className='flex flex-col items-center text-center'>
-          <p className='font-semibold'>กรุณาเข้าสู่ระบบเพื่อแชร์เลขหวย</p>
-          <p className='text-sm text-gray-600 mb-6'>
-            เว็ปไซต์นี้ใช้ระบบล๊อกอินแบบไร้พาสเวิร์ด
-            และจะไม่นำอีเมลของผู้ใช้งานไปใช้ใด ๆ
-          </p>
-          {!showLogin && (
-            <Button
-              variant={'solid'}
-              className='bg-[#2bd498] hover:bg-[#2bd498] hover:scale-105'
-              onClick={() => setShowLogin(true)}
-            >
-              เข้าสู่ระบบ
-            </Button>
+      <div>
+        <div className='flex flex-col items-center justify-center mb-5'>
+          <Button
+            leftIcon={<PlusSquareIcon />}
+            variant={'solid'}
+            className='bg-primary hover:bg-primary hover:scale-105 mb-2'
+            onClick={() => setShowShareHuayForm(!showShareHuayForm)}
+          >
+            แชร์ประสบการณ์ขูดหวย
+          </Button>
+          {showShareHuayForm && (
+            <ShareHuayForm
+              close={() => {
+                setShowShareHuayForm(false)
+                location.reload()
+              }}
+            />
           )}
-          {showLogin && <PassageLogin />}
         </div>
-      )}
+      </div>
       <Tabs position='relative' isFitted marginTop='16px'>
         <TabList>
           <Tab

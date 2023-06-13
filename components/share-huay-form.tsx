@@ -21,13 +21,7 @@ import {
 import { logEvent } from 'firebase/analytics'
 import { useState } from 'react'
 
-export default function ShareHuayForm({
-  userId,
-  close,
-}: {
-  userId: string
-  close: () => void
-}) {
+export default function ShareHuayForm({ close }: { close: () => void }) {
   const [number, setNumber] = useState('XXXXXX')
   const [result, setResult] = useState('lost')
   const [description, setDescription] = useState('')
@@ -52,7 +46,6 @@ export default function ShareHuayForm({
         number: number,
         won: result === 'won',
         description,
-        userId,
       })
 
       analytics && logEvent(analytics, 'huay_shared', { won: result === 'won' })

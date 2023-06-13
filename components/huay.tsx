@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 
 import { Huay } from '@/types/huay'
-import { ArrowUpIcon, CopyIcon } from '@chakra-ui/icons'
+import { CopyIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
 import Image from 'next/image'
 import axios from '@/utils/axios'
