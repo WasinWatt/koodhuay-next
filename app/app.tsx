@@ -12,7 +12,7 @@ import {
   TabPanels,
   Tabs,
 } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Huay } from '@/types/huay'
 import axios from '@/utils/axios'
 import HuayGroup from '@/components/huay-group'
@@ -72,6 +72,12 @@ export default function App({ huays }: { huays: Huay[] }) {
     }
     setIsLoadingMore(false)
   }
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:1317/cosmos/auth/v1beta1/accounts')
+      .then((data) => console.log(data))
+  }, [])
 
   return (
     <>
