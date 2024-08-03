@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://koodhuay.space
+Host: https://koodhuay-next.vercel.app
 
 # Sitemaps
-Sitemap: https://koodhuay.space/sitemap.xml
+Sitemap: https://koodhuay-next.vercel.app/sitemap.xml

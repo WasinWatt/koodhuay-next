@@ -14,10 +14,10 @@ export const metadata = {
     title: 'ขูดหวย | แบ่งปันแรงบันดาลใจขูดหวย',
     description:
       'แบ่งปันประสบการณ์ซื้อหวย ลอตเตอรี่ งวดนี้งวดไหน มีเลขเด็ดอะไร โดนหวยแดกหรือกินหวยมาแชร์แรงบันดาลใจกัน',
-    url: 'https://koodhuay.space',
+    url: 'https://koodhuay-next.vercel.app',
     images: [
       {
-        url: 'https://koodhuay.space/og.png',
+        url: 'https://koodhuay-next.vercel.app/og.png',
       },
     ],
     type: 'website',

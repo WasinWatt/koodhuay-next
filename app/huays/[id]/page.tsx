@@ -17,10 +17,10 @@ export async function generateMetadata({
     openGraph: {
       title: `เลขอวยอันทรงเกียรติ - ${huay.number}`,
       description: huay.description,
-      url: 'https://koodhuay.space',
+      url: 'https://koodhuay-next.vercel.app',
       images: [
         {
-          url: 'https://koodhuay.space/og.png',
+          url: 'https://koodhuay-next.vercel.app/og.png',
         },
       ],
       type: 'website',
